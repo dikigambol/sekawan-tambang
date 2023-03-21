@@ -1,0 +1,10 @@
+###
+DELETE http://localhost:5000/pemakaian/3
+Content-Type: application/json
+Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjo5LCJyb2xlIjoxLCJpYXQiOjE2NzkzNjIzMDd9.2gtZn5HlndJNcOTfhNS3VvS1w-PKnPCri6BpmE9K9Kc
+
+{
+  "id_kendaraan": 2,
+  "id_driver": 2,
+  "tanggal": "2023-03-12"
+}
