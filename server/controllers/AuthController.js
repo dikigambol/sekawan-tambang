@@ -15,13 +15,10 @@ export const signIn = async (req, res) => {
                     { id_user: response.id_user, role: response.role },
                     "gambol"
                 );
-                const encode = jwt.verify(token, "gambol");
                 return res.json({
                     token: token,
-                    user: {
-                        id_user: response.id_user,
-                        role: response.role
-                    },
+                    user: jwt.verify(token, "gambol"),
+                    username: username
                 });
             } else {
                 return res.json({ error: "Invalid username or password" });

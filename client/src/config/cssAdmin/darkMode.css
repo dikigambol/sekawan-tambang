@@ -1,0 +1,259 @@
+:root {
+    /* base  */
+    --background-color: #f5f7ff;
+    --text-color: black;
+    --text-color2: black;
+    --text-primary2: #4B49AC;
+    --border-settingpanel: #CED4DA;
+    /* card  */
+    --card-bg: #fff;
+    --card-text: black;
+    --card-shadow: rgba(146, 146, 146, 0.2) 0px 2px 10px 0px;
+    --card-title: #383838;
+    --card-titleFW: 600;
+    /* form  */
+    --form-bg: transparent;
+    --filter-date: none;
+    --border-form: rgb(206, 212, 218);
+    --form-outline: 1px solid rgb(206, 212, 218);
+    /* footer  */
+    --footer-bg: #e9ebff;
+    /* modal  */
+    --header-modal: 1px solid #CED4DA;
+    --dash-modal: 1px dotted  #CED4DA;
+    --modal-bg: white;
+    --modal-shadow: rgba(0, 0, 0, 0.1) 0px 4px 20px;
+    --modal-backdrop: #000;
+    /* taps  */
+    --shadow-taps: rgba(146, 146, 146, 0.2) 0px 2px 10px 0px;
+    --taps-bg: white;
+    --taps-label: #545454;
+    --taps-color: #7a7a7a;
+    --taps-fontweight: bold;
+    /* tabel  */
+    --border-tabel: 1px solid #CED4DA;
+    --bg-tabel: #F5F7FF;
+    --bordered-tabel: 0.5px solid #CED4DA;
+    --color-alternate: black;
+}
+
+[data-theme='light'] {
+    /* base  */
+    --background-color: #f5f7ff;
+    --text-color: black;
+    --text-color2: black;
+    --text-primary2: #4B49AC;
+    --border-settingpanel: #CED4DA;
+    /* card  */
+    --card-bg: #fff;
+    --card-text: black;
+    --card-shadow: rgba(146, 146, 146, 0.2) 0px 2px 10px 0px;
+    --card-title: #383838;
+    --card-titleFW: 600;
+    /* form  */
+    --form-bg: white;
+    --filter-date: none;
+    --border-form: rgb(206, 212, 218);
+    --form-outline: 1px solid rgb(206, 212, 218);
+    /* footer  */
+    --footer-bg: #e9ebff;
+    /* modal  */
+    --header-modal: 1px solid #CED4DA;
+    --dash-modal: 1px dotted  #CED4DA;
+    --modal-bg: white;
+    --modal-shadow: rgba(0, 0, 0, 0.1) 0px 4px 20px;
+    --modal-backdrop: #000;
+    /* taps  */
+    --shadow-taps: rgba(146, 146, 146, 0.2) 0px 2px 10px 0px;
+    --taps-bg: white;
+    --taps-label: #545454;
+    --taps-color: #7a7a7a;
+    --taps-fontweight: bold;
+    /* tabel  */
+    --border-tabel: 1px solid #CED4DA;
+    --bg-tabel: #F5F7FF;
+    --bordered-tabel: 0.5px solid #CED4DA;
+    --color-alternate: black;
+}
+
+[data-theme='dark'] {
+    /* base  */
+    --background-color: #1b1a20;
+    --text-color: #f0f0f0;
+    --text-color2: white;
+    --text-primary2: #7DA0FA;
+    --border-settingpanel: transparent;
+    /* card  */
+    --card-bg: #27262c;
+    --card-text: rgb(243, 243, 243);
+    --card-shadow: rgba(32, 32, 32, 0.2) 0px 2px 20px 0px;
+    --card-title: rgb(243, 243, 243);
+    --card-titleFW: 500;
+    /* form  */
+    --form-bg: #1b1a20;
+    --border-form: #1b1a20;
+    --filter-date: invert(0.8);
+    --form-outline: none;
+    /* footer  */
+    --footer-bg: rgb(31, 30, 37);
+    /* modal  */
+    --header-modal: 2px solid rgb(56, 56, 56);
+    --dash-modal: 2px dotted rgb(56, 56, 56);
+    --modal-bg: #29282e;
+    --modal-shadow: rgba(0, 0, 0, 0.1) 0px 4px 20px;
+    --modal-backdrop: rgba(107, 107, 107, 0.63);
+    /* taps  */
+    --shadow-taps: none;
+    --taps-bg: #232227;
+    --taps-label: #ffffff;
+    --taps-color: #ffffff;
+    --taps-fontweight: 500;
+    /* tabel  */
+    --border-tabel: 1px solid #3b3b3b;
+    --bg-tabel: rgba(158, 158, 158, 0.05);
+    --bordered-tabel: 0.5px solid #3b3b3b;
+    --color-alternate: rgb(185, 185, 185);
+}
+
+p {
+    color: var(--text-color);
+}
+
+.content-wrapper {
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+}
+
+.text-primary {
+    color: var(--text-primary2) !important;
+}
+
+.settings-panel {
+    background-color: var(--background-color) !important;
+    border-color: var(--border-settingpanel) !important;
+    color: var(--text-color2) !important;
+}
+
+.settings-panel .settings-heading {
+    color: var(--text-color2) !important;
+}
+
+.card-custom {
+    background-color: var(--card-bg) !important;
+    color: var(--card-text) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+.card-title {
+    color: var(--card-title) !important;
+    font-weight: var(--card-titleFW) !important;
+}
+
+.form-control {
+    background-color: var(--form-bg) !important;
+    color: var(--text-color2) !important;
+    border-color: var(--border-form) !important;
+}
+
+select.form-control {
+    outline: var(--form-outline);
+}
+
+.custom-select {
+    outline: var(--form-outline) !important;
+}
+
+.footer {
+    background-color: var(--footer-bg) !important;
+    color: var(--text-color2) !important;
+}
+
+.modal-header {
+    border-bottom: var(--header-modal) !important;
+}
+
+.modal-content {
+    background-color: var(--modal-bg) !important;
+    color: var(--text-color2) !important;
+    border-color: var(--modal-bg) !important;
+    box-shadow: var(--modal-shadow);
+}
+
+.close-btn {
+    font-size: 40px !important;
+    color: var(--text-color2) !important;
+}
+
+.TapS {
+    box-shadow: var(--shadow-taps);
+    background-color: var(--taps-bg) !important;
+}
+
+.TapS2 {
+    box-shadow: var(--shadow-taps);
+    background-color: var(--taps-bg) !important;
+}
+
+.navRight-link {
+    color: var(--taps-color);
+}
+
+.tapbs-label {
+    color: var(--taps-label) !important;
+}
+
+.tapbs-label2 {
+    color: var(--taps-label) !important;
+}
+
+.form-control::-webkit-calendar-picker-indicator {
+    filter: var(--filter-date)
+}
+
+.table-striped td {
+    border-bottom: var(--border-tabel);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--bg-tabel);
+}
+
+.css-b8ldur-Input {
+    color: var(--text-color2) !important;
+}
+
+.css-1g6gooi {
+    color: var(--text-color2) !important;
+}
+
+.css-1uccc91-singleValue {
+    color: var(--text-color2) !important;
+}
+
+.table-bordered {
+    border: var(--bordered-tabel) !important;
+}
+
+.table-bordered th, .table-bordered td {
+    border: var(--bordered-tabel) !important;
+}
+
+.customTable {
+    background-color: var(--bg-tabel) !important;
+}
+
+.table-bordered2 td {
+    border: var(--bordered-tabel) !important;
+}
+
+.table-footer td {
+    color: var(--color-alternate) !important;
+}
+
+.pembatas {
+    border-bottom: var(--dash-modal) !important;
+}
+
+.modal-backdrop {
+    background-color: var(--modal-backdrop) !important;
+}
