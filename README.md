@@ -1,8 +1,11 @@
 # Running Apps
 
-- Server
-open terminal then cd server
-- npm install
-- npm install -g nodemon
+jalankan : npm i -g concurrently jika belum menginstall concurrently
 
-running : nodemon index
+jalankan apps : npm run dev
+
+akses admin :
+- username: admin
+- password: admin
+
+using node v.16
