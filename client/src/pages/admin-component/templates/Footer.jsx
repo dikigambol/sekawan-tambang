@@ -11,8 +11,8 @@ class Footer extends Component {
         return (
             <footer className="footer">
                 <div className="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span className="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © UPT-SI Institut Asia Malang</span>
-                    <span className="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Sistem Informasi Akademi Asia.</span>
+                    <span className="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © Diki Gambol</span>
+                    <span className="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Sekawan Tambang.</span>
                 </div>
                 <div id="theme-settings" className="settings-panel">
                     <i className="settings-close ti-close" />

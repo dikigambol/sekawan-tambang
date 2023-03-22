@@ -29,6 +29,15 @@ class Sidebar extends Component {
                         </Link>
                     </li>
                     {
+                        isAdmin() ? null :
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/list-reservasi">
+                                    <i className="ti-truck menu-icon" />
+                                    <span className="menu-title">Reservasi</span>
+                                </Link>
+                            </li>
+                    }
+                    {
                         isAdmin() ?
                             <>
                                 <li className="nav-item">

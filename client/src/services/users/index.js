@@ -18,6 +18,16 @@ export async function getUsers() {
     }
 }
 
+export async function getUsersByTambang(id) {
+    try {
+        const response = await API.get('optionuser/' + id)
+        return response
+    }
+    catch (err) {
+        return false
+    }
+}
+
 export async function addUser(data) {
     try {
         const response = await API.post('users', data, config)

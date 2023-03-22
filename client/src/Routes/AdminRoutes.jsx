@@ -8,6 +8,7 @@ import Kendaraan from '../pages/kendaraan';
 import DetailKendaraan from '../pages/kendaraan/detail';
 import Psewa from '../pages/psewa';
 import ReservasiAdmin from '../pages/reservasi/reservasiAdmin';
+import ReservasiUser from '../pages/reservasi/reservasiUser';
 import Tambang from '../pages/tambang';
 import Users from '../pages/users';
 
@@ -28,7 +29,10 @@ class AdminRoutes extends Component {
               <Route path="/detail-kendaraan/:id" component={DetailKendaraan} />
               <Route path="/reservasi" component={ReservasiAdmin} />
             </>
-            : null
+            :
+            <>
+              <Route path="/list-reservasi" component={ReservasiUser} />
+            </>
         }
       </Fragment >
     );

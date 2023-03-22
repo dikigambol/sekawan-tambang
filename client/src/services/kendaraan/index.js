@@ -18,6 +18,16 @@ export async function getKendaraan() {
     }
 }
 
+export async function getKendaraanAktif() {
+    try {
+        const response = await API.get('kendaraan-aktif')
+        return response
+    }
+    catch (err) {
+        return false
+    }
+}
+
 export async function getKendaraanById(id) {
     try {
         const response = await API.get('kendaraan/' + id)

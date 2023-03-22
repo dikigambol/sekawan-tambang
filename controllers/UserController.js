@@ -1,5 +1,6 @@
 import User from "../models/UserModel.js";
 import Tambang from "../models/TambangModel.js";
+import Driver from "../models/DriverModel.js"
 import bcrypt from "bcryptjs";
 import { Sequelize } from "sequelize";
 
@@ -16,6 +17,23 @@ export const getUsers = async (req, res) => {
             attributes: {
                 include: [[Sequelize.col("nama_lok_tbg"), "nama_lok_tbg"]]
             }
+        });
+        res.status(200).json(response);
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+export const getUsersByTambang = async (req, res) => {
+    try {
+        const resDriver = await Driver.findOne({
+            where: { id_driver: req.params.id },
+            attributes: ['id_lok_tbg']
+        })
+        let id_tbg = resDriver.id_lok_tbg
+        const response = await User.findAll({
+            where: { id_lok_tbg: id_tbg },
+            attributes: ['id_user','nama']
         });
         res.status(200).json(response);
     } catch (error) {
