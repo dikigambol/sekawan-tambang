@@ -1,10 +1,14 @@
 ###
-DELETE http://localhost:5000/pemakaian/3
+PATCH http://localhost:5000/kendaraan/2
 Content-Type: application/json
-Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjo5LCJyb2xlIjoxLCJpYXQiOjE2NzkzNjIzMDd9.2gtZn5HlndJNcOTfhNS3VvS1w-PKnPCri6BpmE9K9Kc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjo5LCJyb2xlIjoxLCJpYXQiOjE2Nzk0NDI4Njl9.BexfU9wcHEAKIM8gO5QJbNoP1_LwVXV6Ou_ITJsIXhI
 
 {
-  "id_kendaraan": 2,
-  "id_driver": 2,
-  "tanggal": "2023-03-12"
+    "id_kendaraan": 2,
+    "nama_kendaraan": "Kol Series Nopol N 99 LGX",
+    "jenis": "pribadi",
+    "tipe": "angkutan orang",
+    "id_ps": "",
+    "ketersediaan": 1,
+    "nama_ps": "PT. Warmindar (Warung Peminjaman Kendaraan)"
 }

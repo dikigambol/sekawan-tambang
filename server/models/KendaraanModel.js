@@ -10,7 +10,9 @@ const Kendaraan = db.define('kendaraan', {
     },
     nama_kendaraan: DataTypes.STRING,
     jenis: DataTypes.STRING,
-    id_ps: DataTypes.INTEGER
+    tipe: DataTypes.STRING,
+    id_ps: DataTypes.INTEGER,
+    ketersediaan: DataTypes.INTEGER
 }, {
     freezeTableName: true
 })

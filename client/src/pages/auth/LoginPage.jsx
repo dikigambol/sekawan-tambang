@@ -1,22 +1,36 @@
 import React, { Component } from "react";
 import MainLogin from "../../config/mainLogin";
 import { SignIn } from "../../services/auth";
+import { sendMessage } from '../../molecules/message';
 
 export default class Login extends Component {
 
+  state = {
+    isLoad: false,
+    form: []
+  }
+
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      form: {
+        ...this.state.form,
+        [e.target.name]: e.target.value
+      }
     })
   }
 
   submitForm = async (e) => {
     e.preventDefault()
-    const res = await SignIn(this.state)
-    if (res) {
+    this.setState({isLoad: true})
+    const res = await SignIn(this.state.form)
+    console.log(res.data.error)
+    if (!res.data.error) {
+      this.setState({isLoad: false})
       localStorage.setItem("jwt", JSON.stringify(res));
       localStorage.setItem("islogin", true);
       window.location.href = "/home";
+    }else{
+      sendMessage(404)
     }
   }
 
@@ -83,8 +97,9 @@ export default class Login extends Component {
                                 style={{ marginTop: "15px" }}
                                 type="submit"
                                 className="btn text-white btn-block btn-primary2"
-                                id="btnLogin">
-                                Login
+                                id="btnLogin"
+                                disabled={this.state.isLoad}>
+                                {this.state.isLoad ? "Signing Up.." : "Login"}
                               </button>
                               {/* end button login  */}
                             </form>

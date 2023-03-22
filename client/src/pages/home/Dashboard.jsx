@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Setting from '../admin-component/templates/Setting';
-import Agenda from './Agenda';
+import user from '../auth/infoUser';
 import $ from 'jquery';
 
 class Dashboard extends Component {
@@ -36,6 +36,12 @@ class Dashboard extends Component {
         let tanggal = date.getDate();
         let bulan = date.getMonth();
         let tahun = date.getFullYear();
+
+        const data01 = [
+            { name: "Angkutan Barang", value: 400 },
+            { name: "Angkutan Orang", value: 300 }
+        ];
+
         return (
             <Fragment>
                 <div id="smoothMain">
@@ -44,9 +50,9 @@ class Dashboard extends Component {
                             <div className="row" id="captionDash">
                                 <div className="col-12 col-xl-8 mb-4 mb-xl-0">
                                     <h3 className="font-weight-bold">
-                                        Hi ! {JSON.parse(localStorage.getItem("jwt")).data.username.toUpperCase()}
+                                        Hi ! {user.username.toUpperCase()}
                                     </h3>
-                                    <h6 className="font-weight-normal mb-0 mt-1" style={{ lineHeight: '1.3' }}>Selamat datang di aplikasi<span className="text-primary"> SIMAKA Dosen Institut Asia Malang</span></h6>
+                                    <h6 className="font-weight-normal mb-0 mt-1" style={{ lineHeight: '1.3' }}>Selamat datang di dashboard<span className="text-primary"> Sekawan Tambang</span></h6>
                                 </div>
                                 <div className="col-12 col-xl-4">
                                     <div className="justify-content-end d-flex">
@@ -65,7 +71,6 @@ class Dashboard extends Component {
                                     </div>
                                     <div className="ml-2 mt-3 mar">
                                         <h4 className="location font-weight-normal fonttgl hitam">{tanggal + " " + arrbulan[bulan] + " " + tahun}</h4>
-                                        <h4 className="font-weight-normal mt-2 fonttgl hitam">Simaka Dosen.</h4>
                                     </div>
                                 </div>
                                 <div className="card-people mt-auto">
@@ -78,7 +83,7 @@ class Dashboard extends Component {
                                 <div className="col-md-6 mb-4 stretch-card transparent">
                                     <div className="card card-tale">
                                         <div className="card-body">
-                                            <p className="mb-4 putih">Jumlah Mahasiswa</p>
+                                            <p className="mb-4 putih">Jumlah Driver</p>
                                             <p className="fs-30 mb-2 putih">-</p>
                                             <p className="putih">total jumlah</p>
                                         </div>
@@ -87,7 +92,7 @@ class Dashboard extends Component {
                                 <div className="col-md-6 mb-4 stretch-card transparent">
                                     <div className="card card-dark-blue">
                                         <div className="card-body">
-                                            <p className="mb-4 putih">Jumlah Prodi</p>
+                                            <p className="mb-4 putih">Jumlah Kendaraan</p>
                                             <p className="fs-30 mb-2 putih">-</p>
                                             <p className="putih">total jumlah</p>
                                         </div>
@@ -98,7 +103,7 @@ class Dashboard extends Component {
                                 <div className="col-md-6 mb-4 mb-xl-0 stretch-card transparent">
                                     <div className="card card-light-green">
                                         <div className="card-body">
-                                            <p className="mb-4 putih">Jumlah Dosen Tetap</p>
+                                            <p className="mb-4 putih">Jumlah Pemesanan</p>
                                             <p className="fs-30 mb-2 putih">-</p>
                                             <p className="putih">total jumlah</p>
                                         </div>
@@ -107,7 +112,7 @@ class Dashboard extends Component {
                                 <div className="col-md-6 stretch-card transparent">
                                     <div className="card card-light-danger">
                                         <div className="card-body">
-                                            <p className="mb-4 putih">Jumlah Dosen Semi</p>
+                                            <p className="mb-4 putih">Jumlah Lokasi Tambang</p>
                                             <p className="fs-30 mb-2 putih">-</p>
                                             <p className="putih">total jumlah</p>
                                         </div>
@@ -116,17 +121,6 @@ class Dashboard extends Component {
                             </div>
                         </div>
                     </div>
-
-                    <div className="card card-custom">
-                        <div className="card-body">
-                            <p className="card-title text-center" style={{ fontSize: '24px', marginTop: '10px', marginBottom: '30px' }}>Daftar Agenda</p>
-                            {/* agendaBox */}
-                            <div className="table-responsive">
-                                <Agenda />
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </Fragment>
         );

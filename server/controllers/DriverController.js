@@ -1,8 +1,21 @@
+import { Sequelize } from "sequelize";
 import Driver from "../models/DriverModel.js";
+import Tambang from "../models/TambangModel.js";
 
 export const getDriver = async (req, res) => {
+    Driver.belongsTo(Tambang, { foreignKey: 'id_lok_tbg' });
     try {
-        const response = await Driver.findAll();
+        const response = await Driver.findAll({
+            include: [
+                {
+                    model: Tambang,
+                    attributes: []
+                },
+            ],
+            attributes: {
+                include: [[Sequelize.col("nama_lok_tbg"), "nama_lok_tbg"]]
+            }
+        });
         res.status(200).json(response);
     } catch (error) {
         console.log(error.message)

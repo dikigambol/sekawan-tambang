@@ -6,7 +6,6 @@ import AnimationLoader from './templates/AnimationLoader';
 import Footer from './templates/Footer';
 import Navbar from './templates/Navbar';
 import Sidebar from './templates/Sidebar';
-import jwt from 'jsonwebtoken';
 
 class Admin extends Component {
     render() {

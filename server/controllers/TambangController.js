@@ -1,8 +1,21 @@
 import Tambang from "../models/TambangModel.js";
+import Cabang from "../models/CabangModel.js";
+import { Sequelize } from "sequelize";
 
 export const getTambang = async (req, res) => {
+    Tambang.belongsTo(Cabang, { foreignKey: 'id_cabang' });
     try {
-        const response = await Tambang.findAll();
+        const response = await Tambang.findAll({
+            include: [
+                {
+                    model: Cabang,
+                    attributes: []
+                },
+            ],
+            attributes: {
+                include: [[Sequelize.col("nama_cabang"), "nama_cabang"]]
+            }
+        });
         res.status(200).json(response);
     } catch (error) {
         console.log(error.message)
