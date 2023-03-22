@@ -1,5 +1,5 @@
 import express from 'express';
-import { signIn } from '../controllers/AuthController.js';
+import { countDashboard, signIn } from '../controllers/AuthController.js';
 import { getUsers, getUserById, createUser, updateUser, deleteUser } from '../controllers/UserController.js';
 import { isAuth } from '../middlewares/auth.js';
 
@@ -13,5 +13,6 @@ router.delete('/users/:id', isAuth, deleteUser);
 
 // auth 
 router.post('/signin', signIn);
+router.get('/dash', countDashboard);
 
 export default router;

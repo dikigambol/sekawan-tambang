@@ -2,9 +2,23 @@ import React, { Component, Fragment } from 'react';
 import Setting from '../admin-component/templates/Setting';
 import user from '../auth/infoUser';
 import $ from 'jquery';
+import { getDashboard } from '../../services/auth';
 
 class Dashboard extends Component {
-    componentDidMount = () => {
+
+    state = {
+        dash: []
+    }
+
+    getDash = async () => {
+        const res = await getDashboard()
+        if (res) {
+            this.setState({ dash: res.data })
+        }
+    }
+
+    componentDidMount() {
+        this.getDash()
         // jam 
         function time() {
             var d = new Date();
@@ -84,7 +98,7 @@ class Dashboard extends Component {
                                     <div className="card card-tale">
                                         <div className="card-body">
                                             <p className="mb-4 putih">Jumlah Driver</p>
-                                            <p className="fs-30 mb-2 putih">-</p>
+                                            <p className="fs-30 mb-2 putih">{this.state.dash.tdriver}</p>
                                             <p className="putih">total jumlah</p>
                                         </div>
                                     </div>
@@ -93,7 +107,7 @@ class Dashboard extends Component {
                                     <div className="card card-dark-blue">
                                         <div className="card-body">
                                             <p className="mb-4 putih">Jumlah Kendaraan</p>
-                                            <p className="fs-30 mb-2 putih">-</p>
+                                            <p className="fs-30 mb-2 putih">{this.state.dash.tkendaraan}</p>
                                             <p className="putih">total jumlah</p>
                                         </div>
                                     </div>
@@ -104,7 +118,7 @@ class Dashboard extends Component {
                                     <div className="card card-light-green">
                                         <div className="card-body">
                                             <p className="mb-4 putih">Jumlah Pemesanan</p>
-                                            <p className="fs-30 mb-2 putih">-</p>
+                                            <p className="fs-30 mb-2 putih">{this.state.dash.treservasi}</p>
                                             <p className="putih">total jumlah</p>
                                         </div>
                                     </div>
@@ -113,7 +127,7 @@ class Dashboard extends Component {
                                     <div className="card card-light-danger">
                                         <div className="card-body">
                                             <p className="mb-4 putih">Jumlah Lokasi Tambang</p>
-                                            <p className="fs-30 mb-2 putih">-</p>
+                                            <p className="fs-30 mb-2 putih">{this.state.dash.ttambang}</p>
                                             <p className="putih">total jumlah</p>
                                         </div>
                                     </div>

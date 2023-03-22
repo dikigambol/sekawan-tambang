@@ -9,8 +9,8 @@ import { Sequelize } from "sequelize";
 export const getReservasi = async (req, res) => {
     Reservasi.belongsTo(Kendaraan, { foreignKey: 'id_kendaraan', logging: console.log });
     Reservasi.belongsTo(Driver, { foreignKey: 'id_driver', logging: console.log });
-    Reservasi.belongsTo(User, { foreignKey: 'acc1' })
-
+    Reservasi.belongsTo(User, { foreignKey: 'acc1', as: 'atasan1' })
+    Reservasi.belongsTo(User, { foreignKey: 'acc2', as: 'atasan2' })
     try {
         const response = await Reservasi.findAll({
             include: [
@@ -24,21 +24,22 @@ export const getReservasi = async (req, res) => {
                 },
                 {
                     model: User,
-                    on: {
-                        [Sequelize.or]: [
-                            {
-                                id_user: Sequelize.col("reservasi_kendaraan.acc1"),
-                            },
-                            {
-                                id_user: Sequelize.col("reservasi_kendaraan.acc2")
-                            }
-                        ]
-                    },
-
-                }
+                    as: 'atasan1',
+                    attributes: []
+                },
+                {
+                    model: User,
+                    as: 'atasan2',
+                    attributes: []
+                },
             ],
             attributes: {
-                include: [[Sequelize.col("nama_kendaraan"), "nama_kendaraan"], [Sequelize.col("Driver.nama"), "nama"]]
+                include: [
+                    [Sequelize.col("nama_kendaraan"), "nama_kendaraan"],
+                    [Sequelize.col("driver.nama"), "nama_driver"],
+                    [Sequelize.col("atasan1.nama"), "nama_atasan_1"],
+                    [Sequelize.col("atasan2.nama"), "nama_atasan_2"]
+                ]
             }
         });
         res.status(200).json(response);
