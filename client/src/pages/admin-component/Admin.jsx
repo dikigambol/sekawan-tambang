@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import ConfigAdmin from '../../config/configAdmin';
 import AdminRoutes from '../../Routes/AdminRoutes';
-import { isAdmin, isAuthenticate } from '../auth/middleware';
+import { isAuthenticate } from '../auth/middleware';
 import AnimationLoader from './templates/AnimationLoader';
 import Footer from './templates/Footer';
 import Navbar from './templates/Navbar';
