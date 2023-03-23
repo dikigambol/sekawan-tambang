@@ -55,6 +55,7 @@ class Users extends Component {
     }
 
     clearState = () => {
+        $('input').val('');
         this.setState({
             form: {
                 role: "",
@@ -67,6 +68,7 @@ class Users extends Component {
     }
 
     handleEdit = (id) => {
+        $('input').val('');
         this.setState({ type: 'edit' })
         let val = this.state.dataUser.filter(
             (x) => x.id_user === id

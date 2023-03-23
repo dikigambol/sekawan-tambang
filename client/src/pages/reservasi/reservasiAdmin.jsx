@@ -5,6 +5,7 @@ import { getDriver } from '../../services/driver';
 import { getKendaraan, getKendaraanAktif } from '../../services/kendaraan';
 import { addReservasi, deleteReservasi, editReservasi, getReservasi } from '../../services/reservasi';
 import { getUsersByTambang } from '../../services/users';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 class ReservasiAdmin extends Component {
 
@@ -243,6 +244,15 @@ class ReservasiAdmin extends Component {
                                     </tbody>
                                 </table>
                             </div>
+                            <p align="right" className='mt-4'>
+                                <ReactHTMLTableToExcel
+                                    id="cetakKrs"
+                                    className="btn btn-success"
+                                    table="table-to-xls"
+                                    filename={`rekap-reservasi`}
+                                    sheet="tablexls"
+                                    buttonText="cetak to .xls" />
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -363,6 +373,44 @@ class ReservasiAdmin extends Component {
                     </form>
                 </div>
                 {/* end modal  */}
+
+                {/* excel print  */}
+                <table id="table-to-xls" style={{ display: 'none' }}>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Driver</th>
+                            <th>Kendaraan</th>
+                            <th>Keperluan</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Tanggal Kembali</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            this.state.dataReservasi.map((list, i) => {
+                                return (
+                                    <tr key={i}>
+                                        <td>{i + 1}</td>
+                                        <td>{list.nama_driver}</td>
+                                        <td>{list.nama_kendaraan}</td>
+                                        <td>{list.keperluan}</td>
+                                        <td>{list.tanggal_pinjam}</td>
+                                        <td>{list.tanggal_kembali ?? "-"}</td>
+                                        <td>
+                                            {list.status == 1 ||
+                                                list.status == 2 ? "diproses" :
+                                                list.status == 3 ? "aktif" :
+                                                    list.status == 4 ? "selesai" :
+                                                        "non-aktif"}
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </tbody>
+                </table>
             </Fragment>
         );
     }
