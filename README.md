@@ -1,6 +1,7 @@
 # Running Apps
 
 jalankan : npm install
+
 jalankan : cd client, lalu npm install
 
 jika mengalami error pada package react-html-table-to-excel, jalankan
