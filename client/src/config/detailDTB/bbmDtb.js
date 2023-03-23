@@ -1,17 +1,16 @@
-import '../config/cssDTB/buttonsDTB.css';
+import '../../config/cssDTB/buttonsDTB.css';
 const $ = require("jquery");
 $.Datatable = require("datatables.net");
 require('datatables.net-buttons')(window, $);
 require('datatables.net-buttons/js/buttons.html5.js')();
 
-function ConfDtb() {
-
-    $('#tabel').DataTable({
+function BbmDtb() {
+    $('#tabel-bbm').DataTable({
         "order": [[0, 'asc']],
         "paging": true,
         "ordering": true,
-        "info": true,
-        "filter": true,
+        "info": false,
+        "filter": false,
         "pageLength": 10,
         "retrieve": true,
         language: {
@@ -33,10 +32,9 @@ function ConfDtb() {
             },
         },
     });
-
     return (
         null
     );
 }
 
-export default ConfDtb;
+export default BbmDtb;

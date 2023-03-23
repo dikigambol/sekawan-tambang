@@ -6,6 +6,8 @@ import { getKendaraan, getKendaraanAktif } from '../../services/kendaraan';
 import { addReservasi, deleteReservasi, editReservasi, getReservasi } from '../../services/reservasi';
 import { getUsersByTambang } from '../../services/users';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+const $ = require("jquery");
+$.Datatable = require("datatables.net");
 
 class ReservasiAdmin extends Component {
 
@@ -34,6 +36,7 @@ class ReservasiAdmin extends Component {
     }
 
     getAllData = async () => {
+        $('#tabel').DataTable().destroy();
         const data = await Promise.all([
             getReservasi(),
             getKendaraan(),

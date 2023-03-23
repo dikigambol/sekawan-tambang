@@ -21,16 +21,18 @@ export default class Login extends Component {
 
   submitForm = async (e) => {
     e.preventDefault()
-    this.setState({isLoad: true})
+    this.setState({ isLoad: true })
     const res = await SignIn(this.state.form)
     console.log(res.data.error)
     if (!res.data.error) {
-      this.setState({isLoad: false})
+      this.setState({ isLoad: false })
       localStorage.setItem("jwt", JSON.stringify(res));
       localStorage.setItem("islogin", true);
       window.location.href = "/home";
-    }else{
-      sendMessage(404)
+    } else {
+      sendMessage(404).then(() => {
+        this.setState({ isLoad: false })
+      })
     }
   }
 

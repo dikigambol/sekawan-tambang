@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { sendMessage } from '../../molecules/message'
-import { addServis, deleteServis } from '../../services/kendaraan'
+import { addServis, deleteServis, getServis } from '../../services/kendaraan'
 import $ from 'jquery'
+import ServisDtb from '../../config/detailDTB/servisDtb'
 
 export default class HistoriServis extends Component {
 
     state = {
         form: [],
+        dataServis: [],
         isLoad: false
     }
 
@@ -30,7 +32,7 @@ export default class HistoriServis extends Component {
             $('input').val('');
             this.setState({ isLoad: false })
             sendMessage(200).then(() => {
-                this.props.reload()
+                this.getServis()
             })
         }
     }
@@ -39,9 +41,21 @@ export default class HistoriServis extends Component {
         const res = await deleteServis(id)
         if (res.status == 200) {
             sendMessage(200).then(() => {
-                this.props.reload()
+                this.getServis()
             })
         }
+    }
+
+    getServis = async () => {
+        $('#tabel-servis').DataTable().destroy();
+        const res = await getServis(this.props.id)
+        if (res) {
+            this.setState({ dataServis: res.data }, () => { ServisDtb() })
+        }
+    }
+
+    componentDidMount() {
+        this.getServis()
     }
 
     render() {
@@ -78,7 +92,7 @@ export default class HistoriServis extends Component {
                                 </thead>
                                 <tbody>
                                     {
-                                        this.props.data.map((list, i) => {
+                                        this.state.dataServis.map((list, i) => {
                                             return (
                                                 <tr key={i}>
                                                     <td>{i + 1}</td>

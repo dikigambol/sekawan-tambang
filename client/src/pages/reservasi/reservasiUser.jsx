@@ -3,6 +3,8 @@ import ConfDtb from '../../config/confDtb';
 import { sendMessage } from '../../molecules/message';
 import { getReservasiById, setujuReservasi, tolakReservasi } from '../../services/reservasi';
 import user from '../auth/infoUser';
+const $ = require("jquery");
+$.Datatable = require("datatables.net");
 
 class ReservasiUser extends Component {
 
@@ -15,6 +17,7 @@ class ReservasiUser extends Component {
     }
 
     getAllData = async () => {
+        $('#tabel').DataTable().destroy();
         const data = await Promise.all([
             getReservasiById(user.id_user)
         ])
@@ -24,7 +27,7 @@ class ReservasiUser extends Component {
     }
 
     handleKonfirmasi = async (type, id, status, id_kendaraan, id_driver, tanggal) => {
-        let data = { id, status, id_kendaraan, id_driver, tanggal}
+        let data = { id, status, id_kendaraan, id_driver, tanggal }
         if (type == "setuju") {
             const res = await setujuReservasi(data)
             if (res) {

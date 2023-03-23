@@ -9,8 +9,7 @@ import {
     Legend,
     ResponsiveContainer
 } from "recharts";
-import ConfDtb from '../../config/confDtb';
-import { getBBM, getKendaraanById, getPemakaian, getServis } from '../../services/kendaraan';
+import { getKendaraanById, getPemakaian } from '../../services/kendaraan';
 import HistoriBBM from './bbm';
 import HistoriServis from './servis';
 
@@ -18,34 +17,24 @@ class DetailKendaraan extends Component {
 
     state = {
         detail: [],
-        dataBBM: [],
-        dataServis: [],
         dataPemakaian: []
     }
 
     getAllData = async () => {
         const data = await Promise.all([
             getKendaraanById(this.props.match.params.id),
-            getBBM(this.props.match.params.id),
-            getServis(this.props.match.params.id),
             getPemakaian(this.props.match.params.id)
         ])
         this.setState({
             detail: data[0].data,
-            dataBBM: data[1].data,
-            dataServis: data[2].data,
-            dataPemakaian: data[3].data,
-        }, () => { ConfDtb() })
+            dataPemakaian: data[1].data
+        })
     }
     componentDidMount() {
         this.getAllData()
     }
 
     render() {
-        const data = [
-            { name: "19-10-2022", total_pemakaian: 10 },
-            { name: "19-12-2022", total_pemakaian: 3 },
-        ];
         return (
             <Fragment>
                 <div className="smooth mb-2">
@@ -105,14 +94,9 @@ class DetailKendaraan extends Component {
                             </ResponsiveContainer>
                         </div>
                         <HistoriBBM
-                            id={this.props.match.params.id}
-                            data={this.state.dataBBM}
-                            reload={this.getAllData} />
+                            id={this.props.match.params.id}/>
                         <HistoriServis
-                            id={this.props.match.params.id}
-                            data={this.state.dataServis}
-                            reload={this.getAllData}
-                        />
+                            id={this.props.match.params.id}/>
                     </div>
                 </div>
             </Fragment >

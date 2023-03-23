@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import ConfDtb from '../../config/confDtb'
 import { sendMessage } from '../../molecules/message'
 import { addBBM, deleteBBM, getBBM } from '../../services/kendaraan'
-import $ from 'jquery'
+import BbmDtb from '../../config/detailDTB/bbmDtb'
+const $ = require("jquery")
+$.Datatable = require("datatables.net")
 
 export default class HistoriBBM extends Component {
 
     state = {
         form: [],
+        dataBBM: [],
         isLoad: false
     }
 
@@ -31,7 +33,7 @@ export default class HistoriBBM extends Component {
             $('input').val('');
             this.setState({ isLoad: false })
             sendMessage(200).then(() => {
-                this.props.reload()
+                this.getBBM()
             })
         }
     }
@@ -40,9 +42,21 @@ export default class HistoriBBM extends Component {
         const res = await deleteBBM(id)
         if (res.status == 200) {
             sendMessage(200).then(() => {
-                this.props.reload()
+                this.getBBM()
             })
         }
+    }
+
+    getBBM = async () => {
+        $('#tabel-bbm').DataTable().destroy();
+        const res = await getBBM(this.props.id)
+        if (res) {
+            this.setState({ dataBBM: res.data }, () => { BbmDtb() })
+        }
+    }
+
+    componentDidMount() {
+        this.getBBM()
     }
 
     render() {
@@ -79,7 +93,7 @@ export default class HistoriBBM extends Component {
                                 </thead>
                                 <tbody>
                                     {
-                                        this.props.data.map((list, i) => {
+                                        this.state.dataBBM.map((list, i) => {
                                             return (
                                                 <tr key={i}>
                                                     <td>{i + 1}</td>
