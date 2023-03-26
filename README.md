@@ -23,3 +23,5 @@ using node.js v.16
 using mysql database
 
 disini menggunakan database online, namun jika terkendala, bisa menggunakan lokal database, file database dapat di ekspor ataupun dapat menggunakan file database yang sudah tersedia di folder.
+
+go online : https://tambang-client-dikigambol.vercel.app
