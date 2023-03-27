@@ -1,5 +1,7 @@
 # Petunjuk Penggunaan 
 
+ReactJs + ExpressJs + MySQL + NodeJs
+
 jalankan : npm install
 
 lalu jalankan juga : cd client, lalu npm install
