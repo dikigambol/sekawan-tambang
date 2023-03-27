@@ -1,16 +1,14 @@
 import '../../config/cssDTB/buttonsDTB.css';
-const $ = require("jquery");
-$.Datatable = require("datatables.net");
-require('datatables.net-buttons')(window, $);
-require('datatables.net-buttons/js/buttons.html5.js')();
+import DataTable from 'datatables.net-bs4';
+import 'datatables.net-buttons-bs4';
 
 function BbmDtb() {
-    $('#tabel-bbm').DataTable({
+    new DataTable('#tabel-bbm', {
         "order": [[0, 'asc']],
         "paging": true,
         "ordering": true,
-        "info": false,
-        "filter": false,
+        "info": true,
+        "filter": true,
         "pageLength": 10,
         "retrieve": true,
         language: {
@@ -30,8 +28,9 @@ function BbmDtb() {
                 sNext: "&raquo;",
                 sLast: "Terakhir",
             },
-        },
+        }
     });
+
     return (
         null
     );

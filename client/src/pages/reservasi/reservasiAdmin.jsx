@@ -253,6 +253,7 @@ class ReservasiAdmin extends Component {
                                     className="btn btn-success"
                                     table="table-to-xls"
                                     filename={`rekap-reservasi`}
+                                    filetype="xls"
                                     sheet="tablexls"
                                     buttonText="cetak to .xls" />
                             </p>
