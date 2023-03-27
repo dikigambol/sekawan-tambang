@@ -3,7 +3,7 @@ import ConfDtb from '../../config/confDtb';
 import { sendMessage } from '../../molecules/message';
 import { addPsewa, deletePsewa, editPsewa, getPsewa } from '../../services/psewa'
 const $ = require("jquery");
-$.Datatable = require("datatables.net");
+$.Datatable = require("datatables.net-bs4");
 
 class Psewa extends Component {
     constructor(props) {

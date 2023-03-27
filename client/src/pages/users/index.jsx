@@ -5,7 +5,7 @@ import { getTambang } from '../../services/tambang';
 import { addUser, deleteUser, editUser, getUsers } from '../../services/users';
 import user from '../auth/infoUser';
 const $ = require("jquery");
-$.Datatable = require("datatables.net");
+$.Datatable = require("datatables.net-bs4");
 
 class Users extends Component {
     constructor(props) {

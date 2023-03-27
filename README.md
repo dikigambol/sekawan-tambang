@@ -2,7 +2,7 @@
 
 jalankan : npm install
 
-jalankan : cd client, lalu npm install
+lalu jalankan juga : cd client, lalu npm install
 
 jalankan : npm i -g concurrently, jika belum menginstall concurrently
 

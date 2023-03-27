@@ -4,7 +4,7 @@ import { sendMessage } from '../../molecules/message';
 import { getCabang } from '../../services/cabang';
 import { addTambang, deleteTambang, editTambang, getTambang } from '../../services/tambang';
 const $ = require("jquery");
-$.Datatable = require("datatables.net");
+$.Datatable = require("datatables.net-bs4");
 
 class Tambang extends Component {
     constructor(props) {

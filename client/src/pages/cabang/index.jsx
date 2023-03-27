@@ -3,7 +3,7 @@ import ConfDtb from '../../config/confDtb';
 import { sendMessage } from '../../molecules/message';
 import { addCabang, deleteCabang, editCabang, getCabang } from '../../services/cabang';
 const $ = require("jquery");
-$.Datatable = require("datatables.net");
+$.Datatable = require("datatables.net-bs4");
 
 class Cabang extends Component {
     constructor(props) {

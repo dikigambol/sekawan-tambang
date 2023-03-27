@@ -4,7 +4,7 @@ import { sendMessage } from '../../molecules/message';
 import { getReservasiById, setujuReservasi, tolakReservasi } from '../../services/reservasi';
 import user from '../auth/infoUser';
 const $ = require("jquery");
-$.Datatable = require("datatables.net");
+$.Datatable = require("datatables.net-bs4");
 
 class ReservasiUser extends Component {
 

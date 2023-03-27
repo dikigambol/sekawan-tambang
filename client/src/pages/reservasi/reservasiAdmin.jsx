@@ -5,9 +5,9 @@ import { getDriver } from '../../services/driver';
 import { getKendaraan, getKendaraanAktif } from '../../services/kendaraan';
 import { addReservasi, deleteReservasi, editReservasi, getReservasi } from '../../services/reservasi';
 import { getUsersByTambang } from '../../services/users';
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import { TableToExcelReact } from "table-to-excel-react";
 const $ = require("jquery");
-$.Datatable = require("datatables.net");
+$.Datatable = require("datatables.net-bs4");
 
 class ReservasiAdmin extends Component {
 
@@ -248,14 +248,9 @@ class ReservasiAdmin extends Component {
                                 </table>
                             </div>
                             <p align="right" className='mt-4'>
-                                <ReactHTMLTableToExcel
-                                    id="cetakKrs"
-                                    className="btn btn-success"
-                                    table="table-to-xls"
-                                    filename={`rekap-reservasi`}
-                                    filetype="xls"
-                                    sheet="tablexls"
-                                    buttonText="cetak to .xls" />
+                                <TableToExcelReact table="table-to-xls" fileName="rekap-reservasi" sheet="sheet 1">
+                                    <button className="btn btn-success">cetak to .xls</button>
+                                </TableToExcelReact>
                             </p>
                         </div>
                     </div>
@@ -379,7 +374,7 @@ class ReservasiAdmin extends Component {
                 {/* end modal  */}
 
                 {/* excel print  */}
-                <table id="table-to-xls" style={{ display: 'none' }}>
+                <table id="table-to-xls" style={{ display: 'none' }} border="1">
                     <thead>
                         <tr>
                             <th>No</th>

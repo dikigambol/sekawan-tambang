@@ -4,7 +4,7 @@ import { sendMessage } from '../../molecules/message';
 import { addDriver, deleteDriver, editDriver, getDriver } from '../../services/driver';
 import { getTambang } from '../../services/tambang';
 const $ = require("jquery");
-$.Datatable = require("datatables.net");
+$.Datatable = require("datatables.net-bs4");
 
 class Driver extends Component {
     constructor(props) {

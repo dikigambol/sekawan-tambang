@@ -5,7 +5,7 @@ import { addKendaraan, deleteKendaraan, editKendaraan, getKendaraan } from '../.
 import { getPsewa } from '../../services/psewa';
 import { Link } from 'react-router-dom'
 const $ = require("jquery");
-$.Datatable = require("datatables.net");
+$.Datatable = require("datatables.net-bs4");
 
 class Kendaraan extends Component {
     constructor(props) {

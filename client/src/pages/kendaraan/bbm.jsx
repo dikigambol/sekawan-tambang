@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { sendMessage } from '../../molecules/message'
 import { addBBM, deleteBBM, getBBM } from '../../services/kendaraan'
 import BbmDtb from '../../config/detailDTB/bbmDtb'
-const $ = require("jquery")
-$.Datatable = require("datatables.net")
+const $ = require("jquery");
+$.Datatable = require("datatables.net-bs4");
 
 export default class HistoriBBM extends Component {
 

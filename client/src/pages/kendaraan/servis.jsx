@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { sendMessage } from '../../molecules/message'
 import { addServis, deleteServis, getServis } from '../../services/kendaraan'
-import $ from 'jquery'
 import ServisDtb from '../../config/detailDTB/servisDtb'
+const $ = require("jquery");
+$.Datatable = require("datatables.net-bs4");
 
 export default class HistoriServis extends Component {
 
